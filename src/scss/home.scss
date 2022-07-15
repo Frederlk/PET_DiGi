@@ -1,9 +1,9 @@
 .page {
-    transition: all 0.3s ease 0s;
+    transition: padding-top 0.3s ease 0s;
     flex: 1 1 auto;
-    padding: 100px 0px 0px 0px;
-    @media (max-width: $md4+px) {
-        padding: 75px 0px 0px 0px;
+    padding-top: rem(100);
+    @media (max-width: $mobileSmall) {
+        padding-top: rem(75);
     }
     &__home {
     }
@@ -28,7 +28,7 @@
 //</ОСНОВНОЙ БЛОК>====================================================================================================
 
 .home {
-    &__content {
+    &__container {
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -41,94 +41,91 @@
     &__footer {
     }
 }
+
 .slider-home {
-    padding: 40px 0px;
-    position: relative;
-    @media (max-width: $md4+px) {
-        padding: 36px 0px 10px 0;
+    padding-top: rem(75);
+    @media (min-width: $mobileSmall) {
+        padding-bottom: rem(75);
     }
     &__body {
     }
 
     &__content {
-        padding: 0px 0px 100px 0px;
+        padding-bottom: rem(100);
         position: relative;
         z-index: 2;
         text-align: center;
         display: flex;
         flex-direction: column;
         height: 100%;
-        @media (max-width: $md2+px) {
-            padding: 0px 0px 38px 0px;
+        @media (max-width: $tablet) {
+            padding-bottom: rem(38);
         }
-        @media (max-width: $md4+px) {
-            padding: 0px 0px 23px 0px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
     }
 
     &__title {
         text-transform: uppercase;
-        font-size: 96px;
-        line-height: 96 / 96 * 100%;
-        letter-spacing: 2px;
-        color: #ffffff;
-        max-width: 800px;
-        margin: 67px auto 18px auto;
+        @include adaptiveValue("font-size", 96, 28, 1140, 479.98, 1);
+        line-height: math.div(96, 96);
+        letter-spacing: rem(2);
+        color: $white;
+        max-width: rem(800);
+        margin: rem(67) auto rem(18) auto;
         position: relative;
-        @media (max-width: $md1+px) {
-            font-size: 84px;
-            margin: 61px auto 29px auto;
+        @media (max-width: $pc) {
+            margin: rem(60) auto rem(30) auto;
         }
-        @media (max-width: $md2+px) {
-            font-size: 60px;
-            margin: 47px auto 25px auto;
+        @media (max-width: $tablet) {
+            margin: rem(75) auto rem(25) auto;
         }
-        @media (max-width: $md3+px) {
-            margin: 10px auto 30px auto;
-            padding-bottom: 7px;
+        @media (max-width: $tablet) {
+            margin: rem(10) auto rem(30) auto;
+            padding-bottom: rem(7);
             &::after {
                 content: "";
                 left: 50%;
                 transform: translate(-50%, 0px);
                 bottom: 0px;
                 position: absolute;
-                width: 61.05px;
-                height: 8px;
-                background: #4a4a4a;
+                width: rem(61);
+                height: rem(8);
+                background-color: $gray_01;
             }
         }
-        @media (max-width: $md4+px) {
-            padding-bottom: 20px;
-            margin: 0px auto 0px auto;
-            font-size: 28px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
+            margin: 0px auto;
         }
     }
 
     &__subtitle {
-        margin: 0px auto 28px auto;
-        font-size: 24px;
-        line-height: 26 / 24 * 100%;
-        color: #fff;
-        max-width: 886px;
-        @media (max-width: $md1+px) {
-            margin: 0px auto 32px auto;
-            font-size: 18px;
-            line-height: 20 / 18 * 100%;
-            max-width: 587px;
+        margin: 0px auto rem(30) auto;
+        font-size: rem(24);
+        line-height: math.div(26, 24);
+        color: $white;
+        max-width: rem(886);
+        @media (max-width: $pc) {
+            margin-bottom: rem(32);
+            font-size: rem(18);
+            line-height: math.div(20, 18);
+            max-width: rem(587);
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             display: none;
         }
     }
 
     &__btn {
-        justify-content: center;
-        @media (max-width: $md4+px) {
-            display: none;
+        min-width: rem(200);
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
     }
 
-    &__image {
+    &__image-ibg {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -154,23 +151,21 @@
         width: 100%;
         justify-content: center;
         z-index: 10;
-        margin: 23px 0px 8px 0px;
-        @media (max-width: $md1+px) {
-            margin: 12px 0px 10px 0px;
+        gap: rem(10);
+        margin-top: rem(24);
+        margin-bottom: rem(10);
+        @media (max-width: $pc) {
+            padding-top: rem(12);
         }
         .swiper-pagination-bullet {
-            margin: 0px 10px 0px 0px;
-            width: 10px;
-            height: 10px;
+            width: rem(10);
+            height: rem(10);
             border-radius: 50%;
-            border: 1px solid #fff;
-            transition: all 0.3s ease 0s;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
-            }
+            border: rem(1) solid $white;
+            transition: background-color 0.3s ease 0s;
         }
         .swiper-pagination-bullet-active {
-            background-color: #fff;
+            background-color: $white;
         }
     }
 
@@ -179,42 +174,41 @@
         top: 50%;
         right: 0;
         z-index: 10;
-        transform: translate(0, -50%);
-        @media (max-width: $md4+px) {
-            display: none;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
     }
 
     &__navigation-icon {
         cursor: pointer;
-        background-color: #2b4074;
+        background-color: $primary_01;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 70px;
-        height: 70px;
+        width: rem(70);
+        height: rem(70);
         position: relative;
         top: 100%;
-        transition: all 0.3s ease 0s;
+        transition: background-color 0.3s ease 0s;
         &::before {
-            transition: all 0.3s ease 0s;
-            color: #fff;
-            font-size: 22px;
+            transition: color 0.3s ease 0s;
+            color: $white;
+            font-size: rem(22);
         }
-        @media (min-width: $md2+px) {
+        @media (any-hover: hover) {
             &:hover {
-                background-color: #fff;
+                background-color: $white;
                 &::before {
-                    color: #929292;
+                    color: $gray_02;
                 }
             }
         }
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             &::before {
-                font-size: 17px;
+                font-size: rem(17);
             }
-            width: 56px;
-            height: 56px;
+            width: rem(56);
+            height: rem(56);
         }
     }
 
@@ -230,31 +224,32 @@
         }
     }
 }
+
 .footer-home {
-    background-color: #2b4074;
+    background-color: $primary_01;
     &__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 57px 79px 57px 89px;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             padding: 40px 0px;
         }
-        @media (max-width: $md3+px) {
-            padding: 40px 18px;
+        @media (max-width: $tablet) {
+            padding: 40pxrem (18);
             flex-wrap: wrap;
             justify-content: center;
         }
-        @media (max-width: $md4+px) {
-            padding: 40px 18px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
     }
     &__text {
-        color: #fff;
-        @media (max-width: $md3+px) {
+        color: $white;
+        @media (max-width: $tablet) {
             flex: 1 1 100%;
             text-align: center;
-            margin: 0px 20px 40px 0px;
+            margin: 0px rem(20) 40px 0px;
         }
     }
 
@@ -262,16 +257,15 @@
         font-family: "Roboto";
         font-weight: 500;
         font-size: 24px;
-        line-height: 32 / 24 * 100%;
+        line-height: math.div(32, 24);
         margin: 0px 0px 4px 0px;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             margin: 0px 0px 10px 0px;
-            font-size: 18px;
-            line-height: 18 / 18 * 100%;
+            font-size: rem(18);
+            line-height: math.div(18, 18);
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             font-size: 24px;
-            line-height: 24 / 24 * 100%;
         }
     }
 
@@ -280,17 +274,17 @@
         font-family: "Roboto";
         font-weight: 300;
         font-size: 16px;
-        line-height: 18 / 16 * 100%;
-        @media (max-width: $md1+px) {
+        line-height: math.div(18, 16);
+        @media (max-width: $pc) {
             font-size: 14px;
-            line-height: 16 / 14 * 100%;
+            line-height: math.div(16, 14);
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             font-size: 16px;
-            line-height: 18 / 16 * 100%;
+            line-height: math.div(18, 16);
             max-width: 420px;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             max-width: none;
         }
     }
@@ -306,46 +300,47 @@
     &__row {
         display: flex;
         align-items: center;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             flex-wrap: wrap;
         }
     }
 
     &__column {
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             flex: 1 1 100%;
         }
     }
 }
+
 .servis-info {
     margin: 30px 0px;
     flex: 0 0 100%;
-    @media (max-width: $md3+px) {
+    @media (max-width: $tablet) {
         margin: 25px 0px;
     }
     &__body {
         max-width: 393px;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             max-width: none;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             text-align: center;
         }
     }
 
     &__title {
         font-size: 48px;
-        line-height: 56 / 48 * 100%;
-        color: #2b4074;
+        line-height: math.div(56, 48);
+        color: $primary_01;
         margin: 0px 0px 64px 0px;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             text-align: center;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             margin: 0px 0px 30px 0px;
         }
-        @media (max-width: $md4+px) {
-            font-size: 24px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
             margin-bottom: 20px;
         }
     }
@@ -353,29 +348,29 @@
     &__subtitle {
         font-family: "Roboto";
         font-size: 24px;
-        line-height: 26 / 24 * 100%;
-        color: #4a4a4a;
+        line-height: math.div(26, 24);
+        color: $gray_01;
         position: relative;
         margin: 0px 0px 34px 0px;
         padding: 0px 0px 30px 0px;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             padding: 0px 0px 38px 0px;
             max-width: 611px;
         }
-        @media (max-width: $md4+px) {
-            font-size: 20px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
 
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             max-width: none;
         }
-        @media (max-width: $md3+px) {
-            padding-bottom: 30px;
-            margin-bottom: 30px;
+        @media (max-width: $tablet) {
+            padding-bottom: rem(30);
+            margin-bottom: rem(30);
         }
-        @media (max-width: $md4+px) {
-            padding-bottom: 20px;
-            margin-bottom: 40px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
+            margin-bottom: rem(40);
         }
         &::after {
             content: "";
@@ -384,8 +379,8 @@
             bottom: 0;
             width: 100px;
             height: 8px;
-            background: #2b4074;
-            @media (max-width: $md3+px) {
+            background: $primary_01;
+            @media (max-width: $tablet) {
                 left: 50%;
                 transform: translate(-50%, 0px);
             }
@@ -394,26 +389,26 @@
 
     &__text {
         font-family: "Roboto";
-        font-size: 18px;
-        line-height: 24 / 18 * 100%;
+        font-size: rem(18);
+        line-height: math.div(24, 18);
         color: #797979;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             max-width: 611px;
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             max-width: none;
         }
-        @media (max-width: $md4+px) {
-            font-size: 15px;
-            margin-bottom: 15px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
+            margin-bottom: rem(15);
         }
     }
 }
 .servis-items {
     flex: 0 0 63%;
     transform: translate(-100%, 0px);
-    @media (max-width: $md1+px) {
-        border-top: 1px solid #f9f6e5;
+    @media (max-width: $pc) {
+        border-top: rem(1) solid $light_01;
         transform: translate(0px, 0px);
     }
     &__body {
@@ -423,19 +418,19 @@
 
     &__item {
         flex: 0 1 25%;
-        padding: 10px;
-        border-bottom: 1px solid #f9f6e5;
-        border-left: 1px solid #f9f6e5;
+        padding: rem(10);
+        border-bottom: rem(1) solid $light_01;
+        border-left: rem(1) solid $light_01;
         min-height: 280px;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             flex: 0 1 50%;
             padding: 26px;
         }
-        @media (max-width: $md3+px) {
-            padding: 15px;
+        @media (max-width: $tablet) {
+            padding: rem(15);
         }
-        @media (max-width: $md4+px) {
-            flex: 1 1 100%;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
     }
 
@@ -445,15 +440,15 @@
         height: 100%;
         justify-content: center;
         border: 4px solid transparent;
-        padding: 20px 5px;
+        padding: rem(20) 5px;
         text-align: center;
         transition: all 0.3s ease 0s;
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             &:hover {
                 justify-content: space-between;
-                border: 4px solid #2b4074;
+                border: 4px solid $primary_01;
                 .servis-items__image {
-                    margin: 0px 0px 20px 0px;
+                    margin: 0px 0px rem(20) 0px;
                 }
                 .servis-items__subtitle,
                 .servis-items__link {
@@ -461,26 +456,26 @@
                 }
             }
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             padding: 35px;
             justify-content: space-between;
-            border: 4px solid #2b4074;
+            border: 4px solid $primary_01;
             .servis-items__image {
-                margin: 0px 0px 20px 0px;
+                margin: 0px 0px rem(20) 0px;
             }
             .servis-items__subtitle,
             .servis-items__link {
                 display: block;
             }
         }
-        @media (max-width: $md3+px) {
-            padding: 28px 10px;
+        @media (max-width: $tablet) {
+            padding: 28px rem(10);
         }
     }
 
     &__image {
         display: inline-block;
-        margin: 50px 0px 20px 0px;
+        margin: 50px 0px rem(20) 0px;
         img {
             max-width: 100%;
         }
@@ -490,31 +485,31 @@
         flex: 1 1 auto;
         text-transform: uppercase;
         font-weight: 700;
-        font-size: 16px;
-        line-height: 19 / 16 * 100%;
-        letter-spacing: 2px;
-        color: #4a4a4a;
-        margin: 0px 0px 10px 0px;
+        font-size: rem(16);
+        line-height: math.div(19, 16);
+        letter-spacing: rem(2);
+        color: $gray_01;
+        margin-bottom: rem(10);
     }
 
     &__subtitle {
         font-family: "Roboto";
         font-weight: 500;
-        font-size: 16px;
-        line-height: 18 / 16 * 100%;
+        font-size: rem(16);
+        line-height: math.div(19, 16);
         color: #9b9b9b;
         display: none;
-        margin: 0px 0px 18px 0px;
+        margin-bottom: rem(18);
     }
 
     &__link {
         display: inline-block;
         text-transform: uppercase;
         font-weight: 700;
-        font-size: 16px;
-        line-height: 19 / 16 * 100%;
-        letter-spacing: 2px;
-        color: #2b4074;
+        font-size: rem(16);
+        line-height: math.div(19, 16);
+        letter-spacing: rem(2);
+        color: $primary_01;
         display: none;
         &::after {
             content: "→";
@@ -525,22 +520,22 @@
 //========================================================================================================================================================
 
 .portfolio {
-    background: linear-gradient(180deg, #2b4074 0%, rgba(43, 64, 116, 0) 100%);
+    background: linear-gradient(180deg, $primary_01 0%, rgba(43, 64, 116, 0) 100%);
     padding: 80px 0px 50px 0;
-    @media (max-width: $md3+px) {
+    @media (max-width: $tablet) {
         padding: 40px 0px 15px 0;
     }
-    @media (max-width: $md4+px) {
-        padding: 20px 0px 15px 0;
+    @media (max-width: $mobileSmall) {
+        padding-top: rem(75);
     }
     &__container {
     }
 
     &__title {
         font-size: 48px;
-        line-height: 56 / 48 * 100%;
+        line-height: math.div(56, 48);
         text-align: center;
-        color: #ffffff;
+        color: $white;
         text-align: center;
         margin: 0px 0px 80px 0px;
         padding: 0px 0px 24px 0px;
@@ -551,63 +546,58 @@
             left: 50%;
             transform: translate(-50%, 0px);
             bottom: 0;
-            background-color: #fff;
+            background-color: $white;
             width: 100px;
             height: 8px;
         }
-        @media (max-width: $md3+px) {
-            margin: 0px 0px 40px 0px;
+        @media (max-width: $tablet) {
+            margin-bottom: rem(40);
         }
-        @media (max-width: $md4+px) {
-            font-size: 24px;
-            padding: 0px 0px 20px 0px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
+            padding-bottom: rem(20);
         }
     }
 
     &__row {
-        padding: 0px 80px;
         display: flex;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             flex-wrap: wrap;
             justify-content: center;
         }
-        @media (max-width: $md2+px) {
-            padding: 0px;
+        @media (min-width: $mobile) {
+            padding: 0px rem(80);
         }
     }
 
     &__column {
-        padding: 0px 10px;
-        margin: 0px 0px 30px 0px;
+        padding: 0px rem(10);
+        margin-bottom: rem(30);
         flex: 0 1 25%;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             flex: 0 1 50%;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             flex: 1 1 100%;
-            margin: 0px 0px 25px 0px;
-            padding: 0px 25px;
+            margin-bottom: rem(25);
+            padding: 0px rem(25);
         }
-        @media (max-width: $md4+px) {
-            padding: 0;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
     }
 
     &__body {
         position: relative;
         text-align: center;
-        margin: 0px 0px 40px 0px;
-        @media (max-width: $md2+px) {
-            margin: 0px 0px 30px 0px;
-        }
-        @media (max-width: $md3+px) {
-            margin: 0px 0px 25px 0px;
+        @include adaptiveValue("margin-bottom", 40, 25, 1140, 767.98, 1);
+        @media (max-width: $tablet) {
             .portfolio__hover {
                 opacity: 1;
                 visibility: visible;
             }
         }
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             &:hover {
                 .portfolio__hover {
                     opacity: 1;
@@ -618,19 +608,19 @@
     }
 
     &__image {
-        min-height: 240px;
+        min-height: rem(240);
         overflow: hidden;
-        @media (max-width: $md1+px) {
-            min-height: 280px;
+        @media (max-width: $pc) {
+            min-height: rem(280);
         }
-        @media (max-width: $md3+px) {
-            min-heigth: 460px;
+        @media (max-width: $tablet) {
+            min-heigth: rem(460);
         }
-        @media (max-width: $md4+px) {
-            min-height: 250px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
         img {
-            border-radius: 4px;
+            border-radius: rem(4);
         }
     }
 
@@ -648,7 +638,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             height: 20%;
             top: auto;
             bottom: 11px;
@@ -663,7 +653,7 @@
 
     &__search {
         &::before {
-            font-size: 32px;
+            font-size: rem(32);
         }
     }
 
@@ -671,29 +661,28 @@
         display: flex;
         justify-content: center;
         font-weight: 700;
-        font-size: 16px;
+        font-size: rem(16);
+        line-height: math.div(19, 16);
         text-align: center;
-        line-height: 19px;
-        text-align: center;
-        letter-spacing: 2px;
-        color: #2b4074;
+        letter-spacing: rem(2);
+        color: $primary_01;
     }
 }
 //========================================================================================================================================================
 
 .team {
     padding: 50px 0px 70px 0;
-    @media (max-width: $md1+px) {
+    @media (max-width: $pc) {
         padding: 80px 0px 40px 0;
     }
-    @media (max-width: $md2+px) {
+    @media (max-width: $tablet) {
         padding: 40px 0px 50px 0;
     }
-    @media (max-width: $md4+px) {
-        padding: 20px 0px 40px 0;
+    @media (max-width: $mobileSmall) {
+        padding-top: rem(75);
     }
     &__container {
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -701,7 +690,7 @@
     }
     &__row {
         display: flex;
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             flex-wrap: wrap;
         }
     }
@@ -710,15 +699,15 @@
         &:first-child {
             margin: 0px 50px 40px 90px;
             flex: 0 0 460px;
-            @media (max-width: $md1+px) {
+            @media (max-width: $pc) {
                 flex: 0 0 400px;
                 margin: 0px 30px 40px 0px;
             }
-            @media (max-width: $md2+px) {
+            @media (max-width: $tablet) {
                 margin: 0px 17px 40px 0px;
                 flex: 0 0 240px;
             }
-            @media (max-width: $md3+px) {
+            @media (max-width: $tablet) {
                 margin: 0px 0px 40px 0px;
                 flex: 1 1 100%;
             }
@@ -726,13 +715,13 @@
         &:last-child {
             margin: 0px 75px 40px 50px;
             flex: 1 1 auto;
-            @media (max-width: $md1+px) {
-                margin: 0px 0px 40px 30px;
+            @media (max-width: $pc) {
+                margin: 0px 0px 40pxrem (30);
             }
-            @media (max-width: $md2+px) {
+            @media (max-width: $tablet) {
                 margin: 0px 0px 40px 17px;
             }
-            @media (max-width: $md3+px) {
+            @media (max-width: $tablet) {
                 flex: 1 1 100%;
                 margin: 0px 0px 40px 0px;
             }
@@ -746,47 +735,47 @@
         top: 0;
         left: 0;
         height: 420px;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             height: 380px;
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             height: 230px;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             height: 490px;
         }
-        @media (max-width: $md4+px) {
-            height: 250px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
     }
 
     &__body {
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             text-align: center;
         }
     }
 
     &__title {
-        font-size: 48px;
-        line-height: 56 / 48 * 100%;
-        color: #4a4a4a;
+        font-size: rem(48);
+        line-height: math.div(56, 48);
+        color: $gray_01;
         padding: 0px 0px 38px 0px;
         margin: 0px 0px 40px 0px;
         position: relative;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             padding: 0px 0px 23px 0px;
-            margin: 0px 0px 20px 0px;
+            margin: 0px 0px rem(20) 0px;
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             padding: 0px 0px 28px 0px;
             margin: 0px 0px 10px 0px;
             font-size: 36px;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             margin: 0px 0px 40px 0px;
         }
-        @media (max-width: $md4+px) {
-            margin: 0px 0px 25px 0px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
             font-size: 24px;
         }
         &::after {
@@ -796,82 +785,82 @@
             left: 0;
             width: 113.48px;
             height: 8px;
-            background: #2b4074;
-            @media (max-width: $md1+px) {
+            background: $primary_01;
+            @media (max-width: $pc) {
                 width: 100px;
             }
-            @media (max-width: $md3+px) {
+            @media (max-width: $tablet) {
                 width: 88px;
                 left: 50%;
                 transform: translate(-50%, 0px);
             }
-            @media (max-width: $md4+px) {
-                width: 45px;
+            @media (max-width: $mobileSmall) {
+                padding-top: rem(75);
             }
         }
     }
 
     &__text {
         font-family: Roboto;
-        font-size: 18px;
-        line-height: 24 / 18 * 100%;
+        font-size: rem(18);
+        line-height: math.div(24, 18);
         color: #9b9b9b;
-        margin: 0px 0px 40px 0px;
-        @media (max-width: $md2+px) {
+        margin-bottom: rem(40);
+        @media (max-width: $tablet) {
             margin: 0;
         }
-        @media (max-width: $md3+px) {
-            font-size: 16px;
-            margin: 0px 0px 25px 0px;
+        @media (max-width: $tablet) {
+            font-size: rem(16);
+            margin-bottom: rem(25);
         }
-        @media (max-width: $md4+px) {
-            margin: 0px 0px 55px 0px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
         }
     }
 
     &__btn {
-        height: 60px;
-        padding: 0px 35px;
+        height: rem(60);
+        padding: 0px rem(35);
     }
 }
 
 //========================================================================================================================================================
 
 .news {
-    background-color: #f9f6e5;
+    background-color: $light_01;
     padding: 50px 0px;
-    @media (max-width: $md1+px) {
+    @media (max-width: $pc) {
         padding: 65px 0px 50px 0;
     }
-    @media (max-width: $md2+px) {
+    @media (max-width: $tablet) {
         padding: 40px 0px 10px 0;
     }
     &__container {
     }
 
     &__title {
-        font-size: 48px;
-        line-height: 56 / 48 * 100%;
-        color: #4a4a4a;
+        font-size: rem(48);
+        line-height: math.div(56, 48);
+        color: $gray_01;
         padding: 0px 0px 28px 0px;
         margin: 0px 0px 115px 0px;
         position: relative;
         text-align: center;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             padding: 0px 0px 38px 0px;
             margin: 0px 0px 100px 0px;
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             padding: 0px 0px 38px 0px;
             margin: 0px 0px 50px 0px;
             font-size: 36px;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             padding: 0px 0px 28px 0px;
             margin: 0px 0px 60px 0px;
         }
-        @media (max-width: $md4+px) {
-            margin: 0px 0px 40px 0px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
             font-size: 24px;
         }
         &::after {
@@ -880,17 +869,17 @@
             bottom: 0;
             width: 113.48px;
             height: 8px;
-            background: #2b4074;
+            background: $primary_01;
             left: 50%;
             transform: translate(-50%, 0px);
-            @media (max-width: $md1+px) {
+            @media (max-width: $pc) {
                 width: 100px;
             }
-            @media (max-width: $md3+px) {
+            @media (max-width: $tablet) {
                 width: 88px;
             }
-            @media (max-width: $md4+px) {
-                width: 45px;
+            @media (max-width: $mobileSmall) {
+                padding-top: rem(75);
             }
         }
     }
@@ -898,10 +887,10 @@
     &__masonry {
         display: flex;
         padding: 0px 50px;
-        @media (max-width: $md1+px) {
-            padding: 0px 15px;
+        @media (max-width: $pc) {
+            padding: 0pxrem (15);
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $tablet) {
             padding: 0px 0px;
             margin: 0px -15px;
         }
@@ -910,18 +899,17 @@
     &__grid-column {
         position: relative;
         flex: 1;
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             &:nth-child(4) {
                 display: none;
             }
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             &:nth-child(3) {
                 display: none;
             }
-        }
-        @media (max-width: $md4+px) {
-            &:nth-child(2) {
+            @media (max-width: $mobileSmall) {
+                padding-top: rem(75);
                 display: none;
             }
         }
@@ -929,7 +917,7 @@
 
     &__grid-item {
         overflow: hidden;
-        margin: 0px 15px 30px 15px;
+        margin: 0px rem(15) 30px rem(15);
         border-radius: 4px;
         position: relative;
         &::before {
@@ -960,19 +948,19 @@
             left: 0;
             background-color: rgba(43, 64, 116, 0.4);
         }
-        @media (min-width: $md2+px) {
+        @media (min-width: $tablet) {
             &:hover {
                 &::before {
                     opacity: 1;
                     visibility: visible;
                 }
                 &::after {
-                    border: 10px solid #2b4074;
+                    border: 10px solid $primary_01;
                 }
                 .news__link {
                     transform: translate(0px, -30px);
-                    background-color: #2b4074;
-                    color: #fff;
+                    background-color: $primary_01;
+                    color: $white;
                 }
             }
         }
@@ -1053,12 +1041,12 @@
         display: flex;
         align-items: center;
         padding: 10px 20px;
-        background-color: #fff;
+        background-color: $white;
         font-weight: 700;
-        font-size: 16px;
-        line-height: 19 / 16 * 100%;
-        letter-spacing: 2px;
-        color: #4a4a4a;
+        font-size: rem(16);
+        line-height: math.div(19, 16);
+        letter-spacing: rem(2);
+        color: $gray_01;
     }
 }
 
@@ -1066,7 +1054,7 @@
 
 .testimonials {
     padding: 80px 0px 140px 0;
-    @media (max-width: $md2+px) {
+    @media (max-width: $tablet) {
         padding: 50px 0px 80px 0;
     }
     &__container {
@@ -1088,7 +1076,7 @@
         font-size: 26px;
         margin: 0px 0px 50px 0px;
         flex: 1 1 auto;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             margin: 0px 0px 40px 0px;
         }
     }
@@ -1097,66 +1085,63 @@
         max-width: 880px;
         margin: 0px auto 30px auto;
         font-size: 36px;
-        line-height: 42px;
-        line-height: 42 / 36 * 100%;
-        color: #4a4a4a;
-        @media (max-width: $md1+px) {
+        line-height: math.div(46, 36);
+        color: $gray_01;
+        @media (max-width: $pc) {
             font-size: 32px;
-            line-height: 37 / 32 * 100%;
+            line-height: math.div(37, 32);
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             margin: 0px 0px 40px 0px;
-            line-height: 34 / 32 * 100%;
+            line-height: math.div(34, 32);
         }
-        @media (max-width: $md4+px) {
-            font-size: 24px;
-            margin: 0px 0px 20px 0px;
-            line-height: 26 / 24 * 100%;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(75);
+            margin: 0px 0px rem(20) 0px;
+            line-height: math.div(26, 24);
         }
         span {
             font-weight: 700;
-            color: #2b4074;
+            color: $primary_01;
         }
     }
 
     &__name {
-        margin: 0px 0px 40px 0px;
+        margin-bottom: rem(40);
         font-weight: 700;
-        font-size: 24px;
-        line-height: 28 / 24 * 100%;
+        font-size: rem(24);
+        line-height: math.div(28, 24);
         letter-spacing: 2px;
-        color: #4a4a4a;
-        @media (max-width: $md1+px) {
-            font-size: 20;
+        color: $gray_01;
+        @media (max-width: $pc) {
+            font-size: rem(20);
         }
-        @media (max-width: $md2+px) {
-            margin: 0px 0px 20px 0px;
-            line-height: 24 / 20 * 100%;
+        @media (max-width: $tablet) {
+            margin-bottom: rem(20);
+            line-height: math.div(24, 20);
         }
     }
 
     &__pagination {
-        margin: 40px 0px 0px 0px;
+        margin-top: rem(40);
         display: flex;
         justify-content: center;
-        @media (max-width: $md2+px) {
-            margin: 20px 0px 0px 0px;
+        @media (max-width: $tablet) {
+            margin-top: rem(20);
         }
         .swiper-pagination-bullet {
             border-radius: 50%;
-            width: 10px;
-            height: 10px;
-            margin: 0px 10px 0px 0px;
-            border: 1px solid #2b4074;
-            background: #2b4074;
-            transition: all 0.3s ease 0s;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
+            width: rem(10);
+            height: rem(10);
+            border: rem(1) solid $primary_01;
+            background: $primary_01;
+            transition: background-color 0.3s ease 0s;
+            &:not(:last-child) {
+                margin-bottom: rem(10);
             }
         }
         .swiper-pagination-bullet-active {
-            background-color: #fff;
-            border: 1px solid #2b4074;
+            background-color: $white;
         }
     }
 }

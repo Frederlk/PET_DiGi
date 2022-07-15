@@ -1,17 +1,9 @@
 .footer {
-    background: #2b4074;
+    background: $primary_01;
     position: relative;
     &__content {
-        padding: 150px 80px 110px 80px;
-        @media (max-width: $md1+px) {
-            padding: 150px 0px 110px 0px;
-        }
-        @media (max-width: $md2+px) {
-            padding: 110px 0px 10px 0px;
-        }
-        @media (max-width: $md3+px) {
-            padding: 80px 0px 10px 0px;
-        }
+        @include adaptiveValue("padding-top", 150, 80, 1140, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 110, 10, 1140, 767.98, 1);
     }
 
     &__logo {
@@ -21,10 +13,10 @@
         transform: translate(-50%, -50%);
         display: inline-flex;
         justify-content: center;
-        background: #2b4074;
-        padding: 5px 75px;
+        background: $primary_01;
+        padding: rem(5) rem(75);
         img {
-            width: 83px;
+            width: rem(83);
         }
     }
 
@@ -32,177 +24,166 @@
     }
 
     &__title {
-        max-width: 650px;
-        margin: 0px 0px 80px 0px;
+        max-width: rem(650);
         font-family: Roboto;
-        font-size: 24px;
-        line-height: 32 / 24 * 100%;
-        letter-spacing: 2px;
-        color: #ffffff;
-        @media (max-width: $md2+px) {
-            margin: 0px 0px 60px 0px;
-        }
-        @media (max-width: $md3+px) {
-            margin: 0px 0px 40px 0px;
-        }
-        @media (max-width: $md4+px) {
-            font-size: 20px;
+        @include adaptiveValue("margin-bottom", 80, 40, 1140, 767.98, 1);
+        @include adaptiveValue("font-size", 24, 20, 767.98, 479.98, 1);
+        line-height: math.div(32, 24);
+        letter-spacing: rem(2);
+        color: $white;
+        @media (max-width: $mobileSmall) {
             text-align: center;
             max-width: none;
-            line-height: 22 / 20 * 100%;
         }
     }
 
-    &__row {
-        display: flex;
-        margin: 0px 0px 80px 0px;
-        border-top: 1px solid #7ebf84;
-        border-bottom: 1px solid #7ebf84;
-        @media (max-width: $md2+px) {
-            margin: 0px 0px 60px 0px;
+    &__socials {
+        @include adaptiveValue("margin-bottom", 80, 40, 1140, 767.98, 1);
+        @media (min-width: $mobileSmall) {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            min-height: rem(70);
+            border-top: rem(1) solid $green;
+            border-bottom: rem(1) solid $green;
         }
-        @media (max-width: $md3+px) {
-            margin: 0px 0px 40px 0px;
-        }
-        @media (max-width: $md4+px) {
-            border: none;
-            flex-wrap: wrap;
-        }
-    }
-
-    &__column {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 0 1 25%;
-        border-right: 1px solid #7ebf84;
-        transition: all 0.3s ease 0s;
-        @media (min-width: $md2+px) {
-            &:hover {
-                background-color: #fff;
-                .footer__social {
-                    &::before {
-                        color: #2b4074;
-                    }
-                }
-            }
-        }
-        @media (max-width: $md4+px) {
-            flex: 1 1 100%;
-            margin: 0px 0px 16px 0px;
-            border: none;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
-            }
-        }
-        &:last-child {
-            border-right: none;
-        }
-    }
-
-    &__item {
     }
 
     &__social {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 25px;
-        &::before {
-            color: #fff;
-            font-size: 18px;
+        transition: background-color 0.3s ease 0s;
+        &:not(:last-child) {
+            @media (min-width: $mobileSmall) {
+                border-right: rem(1) solid $green;
+            }
+            @media (max-width: $mobileSmall) {
+                margin-bottom: rem(16);
+            }
         }
-        @media (max-width: $md4+px) {
-            padding: 0;
+        &::before {
+            transition: color 0.3s ease 0s;
+            color: $white;
+            font-size: rem(18);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $white;
+                &::before {
+                    color: $primary_01;
+                }
+            }
         }
     }
 
     &__low {
         display: flex;
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             flex-wrap: wrap;
         }
-        @media (max-width: $md4+px) {
+        @media (max-width: $mobileSmall) {
             justify-content: center;
             text-align: center;
         }
     }
 
-    &__column-list {
-        padding: 0px 10px 0px 0px;
+    &__list {
         flex: 0 1 25%;
-        &:last-child {
-            padding: 0;
+        &:not(:last-child) {
+            padding-right: rem(10);
         }
-        @media (max-width: $md2+px) {
-            margin: 0px 0px 30px 0px;
+        @media (max-width: $tablet) {
+            margin-bottom: rem(30);
             flex: 0 1 50%;
         }
-        @media (max-width: $md4+px) {
+        @media (max-width: $mobileSmall) {
             flex: 1 1 100%;
         }
     }
 
-    &__list {
-    }
-
     &__label {
         font-weight: 700;
-        font-size: 16px;
-        line-height: 19 / 16 * 100%;
-        letter-spacing: 2px;
-        color: #f9f6e5;
-        margin: 0px 0px 20px 0px;
+        letter-spacing: rem(2);
+        color: $light_01;
+        margin-bottom: rem(20);
+        font-size: rem(18);
+        line-height: math.div(21, 18);
+        @media (min-width: $tablet) {
+            font-size: rem(16);
+            line-height: math.div(19, 16);
+        }
     }
 
     &__link {
         font-family: Roboto;
-        line-height: 20 / 12 * 100%;
-        font-size: 12px;
-        color: #ffffff;
-        @media (min-width: $md2+px) {
+        color: $white;
+        font-size: rem(16);
+        line-height: math.div(20, 16);
+        @media (min-width: $tablet) {
+            font-size: rem(12);
+            line-height: math.div(20, 12);
+        }
+        @media (any-hover: hover) {
             &:hover {
                 text-decoration: underline;
             }
         }
     }
-    &__slide {
+
+    &__to-top {
+    }
+}
+
+.to-top {
+    background-color: $light_01;
+    padding: rem(10) 0;
+    min-height: rem(42);
+    @media (max-width: $mobileSmall) {
+        padding-top: rem(56);
+        padding-bottom: rem(25);
+    }
+    &__container {
+        @media (min-width: $mobileSmall) {
+            text-align: right;
+        }
+    }
+
+    &__button {
+        display: inline-flex;
         align-items: center;
-        padding: 10px 76px;
-        background-color: #f9f6e5;
-        display: flex;
-        justify-content: flex-end;
-        @media (max-width: $md1+px) {
-            padding: 10px;
+        @media (max-width: $mobileSmall) {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
         }
-        @media (max-width: $md3+px) {
-            padding: 15px;
+        @media (any-hover: hover) {
+            &:hover {
+                .to-top__image {
+                    transform: translate(0px, 0);
+                }
+            }
         }
-        @media (max-width: $md4+px) {
+    }
+
+    &__text {
+        @extend %text_01;
+        color: $gray_01;
+        text-transform: uppercase;
+        margin-right: rem(12);
+        @media (max-width: $mobileSmall) {
             flex-wrap: wrap;
             justify-content: center;
             text-align: center;
-            padding: 50px 0px 20px 0;
+            margin: 0px 0px rem(20) 0px;
         }
     }
 
-    &__to-top {
-        font-size: 16px;
-        letter-spacing: 2px;
-        color: #4a4a4a;
-        line-height: 19 / 16 * 100%;
-        text-transform: uppercase;
-        margin: 0px 15px 0px 0px;
-        @media (max-width: $md4+px) {
-            flex: 1 1 100%;
-            margin: 0px 0px 20px 0px;
-        }
-    }
-
-    &__to-top-image {
-        @media (max-width: $md4+px) {
-            flex: 1 1 100%;
-        }
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(0px, rem(3));
+        transition: transform 0.3s ease 0s;
         img {
             max-width: 100%;
         }
