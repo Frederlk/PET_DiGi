@@ -1,0 +1,55 @@
+%ic {
+    font-family: "icons";
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+[class^="_icon-"],
+[class*=" _icon-"] {
+    &:before,
+    &::after {
+        @extend %ic;
+        display: block;
+    }
+}
+
+._icon-forward:before {
+    content: "\e900";
+    color: #fff;
+}
+._icon-back:before {
+    content: "\e901";
+    color: #929292;
+}
+._icon-search:before {
+    content: "\e902";
+    color: #2b4074;
+}
+._icon-info:before {
+    content: "\e903";
+    color: #2b4074;
+}
+._icon-quotes:before {
+    content: "\e904";
+    color: #2b4074;
+}
+._icon-pin:before {
+    content: "\e905";
+    color: #fff;
+}
+._icon-twitter:before {
+    content: "\e906";
+    color: #fff;
+}
+._icon-google:before {
+    content: "\e907";
+    color: #fff;
+}
+._icon-facebook:before {
+    content: "\e908";
+    color: #fff;
+}
