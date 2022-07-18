@@ -263,88 +263,53 @@
 //========================================================================================================================================================
 
 .servis {
-    &__row {
-        display: flex;
-        align-items: center;
-        @media (max-width: $pc) {
-            flex-wrap: wrap;
+    display: flex;
+    max-width: rem(1330);
+    gap: rem(60);
+    padding: 0px rem(15);
+    margin: 0px auto;
+    box-sizing: content-box;
+    @media (max-width: $pc) {
+        flex-wrap: wrap;
+    }
+    &__info {
+        @media (min-width: $pc) {
+            padding-top: rem(90);
         }
+        @include adaptiveValue("padding-top", 50, 25, 1140, 479.98, 1);
     }
 
-    &__column {
-        @media (max-width: $pc) {
-            flex: 1 1 100%;
-        }
+    &__items {
     }
 }
 
 .servis-info {
-    margin: 30px 0px;
-    flex: 0 0 100%;
-    @media (max-width: $tablet) {
-        margin: 25px 0px;
-    }
-    &__body {
-        max-width: 393px;
-        @media (max-width: $pc) {
-            max-width: none;
-        }
-        @media (max-width: $tablet) {
-            text-align: center;
-        }
-    }
-
+    flex: 0 0 rem(390);
     &__title {
-        font-size: 48px;
+        font-size: rem(48);
         line-height: math.div(56, 48);
         color: $primary_01;
-        margin: 0px 0px 64px 0px;
+        @include adaptiveValue("margin-bottom", 64, 20, 1140, 479.98, 1);
         @media (max-width: $pc) {
             text-align: center;
-        }
-        @media (max-width: $tablet) {
-            margin: 0px 0px 30px 0px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-            margin-bottom: 20px;
         }
     }
 
     &__subtitle {
         font-family: "Roboto";
-        font-size: 24px;
+        font-size: rem(24);
         line-height: math.div(26, 24);
         color: $gray_01;
         position: relative;
-        margin: 0px 0px 34px 0px;
-        padding: 0px 0px 30px 0px;
-        @media (max-width: $pc) {
-            padding: 0px 0px 38px 0px;
-            max-width: 611px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-        }
-
-        @media (max-width: $tablet) {
-            max-width: none;
-        }
-        @media (max-width: $tablet) {
-            padding-bottom: rem(30);
-            margin-bottom: rem(30);
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-            margin-bottom: rem(40);
-        }
+        margin-bottom: rem(34);
+        padding-bottom: rem(30);
         &::after {
             content: "";
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 100px;
-            height: 8px;
+            width: rem(100);
+            height: rem(8);
             background: $primary_01;
             @media (max-width: $tablet) {
                 left: 50%;
@@ -357,98 +322,50 @@
         font-family: "Roboto";
         font-size: rem(18);
         line-height: math.div(24, 18);
-        color: #797979;
-        @media (max-width: $pc) {
-            max-width: 611px;
-        }
+        color: $gray_03;
         @media (max-width: $tablet) {
-            max-width: none;
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-            margin-bottom: rem(15);
+            max-width: rem(610);
         }
     }
 }
-.servis-items {
-    flex: 0 0 63%;
-    transform: translate(-100%, 0px);
-    @media (max-width: $pc) {
-        border-top: rem(1) solid $light_01;
-        transform: translate(0px, 0px);
-    }
-    &__body {
-        display: flex;
-        flex-wrap: wrap;
-    }
 
+.servis-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     &__item {
-        flex: 0 1 25%;
-        padding: rem(10);
+        padding: rem(12);
         border-bottom: rem(1) solid $light_01;
         border-left: rem(1) solid $light_01;
-        min-height: 280px;
-        @media (max-width: $tablet) {
-            flex: 0 1 50%;
-            padding: 26px;
-        }
-        @media (max-width: $tablet) {
-            padding: rem(15);
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-        }
+        min-height: rem(280);
     }
 
-    &__content {
+    &__body {
         display: flex;
         flex-direction: column;
-        height: 100%;
         justify-content: center;
-        border: 4px solid transparent;
-        padding: rem(20) 5px;
+        align-items: center;
         text-align: center;
-        transition: all 0.3s ease 0s;
-        @media (min-width: $tablet) {
+        height: 100%;
+        border: rem(4) solid transparent;
+        transition: border 0.3s ease 0s;
+        @media (any-hover: hover) {
             &:hover {
-                justify-content: space-between;
-                border: 4px solid $primary_01;
-                .servis-items__image {
-                    margin: 0px 0px rem(20) 0px;
-                }
-                .servis-items__subtitle,
-                .servis-items__link {
-                    display: block;
-                }
+                border: rem(4) solid $primary_01;
             }
-        }
-        @media (max-width: $tablet) {
-            padding: 35px;
-            justify-content: space-between;
-            border: 4px solid $primary_01;
-            .servis-items__image {
-                margin: 0px 0px rem(20) 0px;
-            }
-            .servis-items__subtitle,
-            .servis-items__link {
-                display: block;
-            }
-        }
-        @media (max-width: $tablet) {
-            padding: 28px rem(10);
         }
     }
 
     &__image {
-        display: inline-block;
-        margin: 50px 0px rem(20) 0px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: rem(20);
         img {
             max-width: 100%;
         }
     }
 
     &__title {
-        flex: 1 1 auto;
         text-transform: uppercase;
         font-weight: 700;
         font-size: rem(16);
@@ -463,9 +380,9 @@
         font-weight: 500;
         font-size: rem(16);
         line-height: math.div(19, 16);
-        color: #9b9b9b;
-        display: none;
+        color: $gray_04;
         margin-bottom: rem(18);
+        // display: none;
     }
 
     &__link {
@@ -476,7 +393,7 @@
         line-height: math.div(19, 16);
         letter-spacing: rem(2);
         color: $primary_01;
-        display: none;
+        // display: none;
         &::after {
             content: "→";
         }
@@ -770,7 +687,7 @@
         font-family: Roboto;
         font-size: rem(18);
         line-height: math.div(24, 18);
-        color: #9b9b9b;
+        color: $gray_04;
         margin-bottom: rem(40);
         @media (max-width: $tablet) {
             margin: 0;

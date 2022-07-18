@@ -25,6 +25,8 @@ $light_01: #f9f6e5;
 $green: #7ebf84;
 $gray_01: #4a4a4a;
 $gray_02: #929292;
+$gray_03: #797979;
+$gray_04: #9b9b9b;
 $primary_01: #2b4074;
 $mainColor: #000; // Цвет шрифта по умолчанию
 
@@ -64,17 +66,6 @@ body {
     }
     // Сайт загружен
     .loaded & {
-    }
-    &._scroll {
-        .header {
-            padding: 5px 0px;
-            &::before {
-                height: 75px;
-            }
-        }
-        .page {
-            padding: 75px 0px 0px 0px;
-        }
     }
 }
 

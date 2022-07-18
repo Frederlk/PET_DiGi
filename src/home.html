@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-    @@include('html/_head.htm',{ "title":"Главная" })
+    @@include('html/_head.htm',{ "title":"DiGi" })
 
     <body>
         <div class="wrapper">
@@ -46,7 +46,7 @@
                             <button type="button" class="nav__icon nav__icon_next _icon-back"></button>
                         </div>
                         <div class="slider-home__image-ibg">
-                            <img src="img/bg_1.jpg" alt="Задний фон" />
+                            <img src="@img/bg_1.jpg" alt="Задний фон" />
                         </div>
                     </div>
                     <div class="home__footer footer-home">
@@ -64,105 +64,98 @@
                 </section>
 
                 <section class="page__servis servis">
-                    <div class="servis__row">
-                        <div class="servis__column servis-info">
-                            <div class="servis-info__container _container">
-                                <div class="servis-info__body">
-                                    <div class="servis-info__title">Сервис</div>
-                                    <div class="servis-info__subtitle">От идеи до незабываемого и измеримого результата.</div>
-                                    <div class="servis-info__text">
-                                        Интеграция безупречного производства, передовых технологий и тщательного измерения
-                                        производительности
-                                    </div>
-                                </div>
+                    <div class="servis__info servis-info">
+                        <h2 class="servis-info__title">Сервис</h2>
+                        <h5 class="servis-info__subtitle">От идеи до незабываемого и измеримого результата.</h5>
+                        <p class="servis-info__text">
+                            Интеграция безупречного производства, передовых технологий и тщательного измерения производительности
+                        </p>
+                    </div>
+
+                    <div class="servis__items servis-items">
+                        <div class="servis-items__item">
+                            <div class="servis-items__body">
+                                <a href="#" class="servis-items__image">
+                                    <img src="@img/categories/01.png" alt="СТРАТЕГИЯ" />
+                                </a>
+                                <a href="#" class="servis-items__title"> СТРАТЕГИЯ </a>
+                                <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
+                                <a href="#" class="servis-items__link">Подробнее</a>
                             </div>
                         </div>
-                        <div class="servis__column servis-items">
+                        <div class="servis-items__item">
                             <div class="servis-items__body">
-                                <div class="servis-items__item">
-                                    <div class="servis-items__content">
-                                        <a href="#" class="servis-items__image">
-                                            <img src="img/categories/01.png" alt="" />
-                                        </a>
-                                        <a href="" class="servis-items__title"> СТРАТЕГИЯ </a>
-                                        <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
-                                        <a href="#" class="servis-items__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="servis-items__item">
-                                    <div class="servis-items__content">
-                                        <a href="#" class="servis-items__image">
-                                            <img src="img/categories/02.png" alt="" />
-                                        </a>
-                                        <a href="" class="servis-items__title"> АНАЛИЗ </a>
-                                        <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
-                                        <a href="#" class="servis-items__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="servis-items__item">
-                                    <div class="servis-items__content">
-                                        <a href="#" class="servis-items__image">
-                                            <img src="img/categories/03.png" alt="" />
-                                        </a>
-                                        <a href="" class="servis-items__title"> СОЦ СЕТИ </a>
-                                        <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
-                                        <a href="#" class="servis-items__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="servis-items__item">
-                                    <div class="servis-items__content">
-                                        <a href="#" class="servis-items__image">
-                                            <img src="img/categories/04.png" alt="" />
-                                        </a>
-                                        <a href="" class="servis-items__title"> РАЗВИТИЕ </a>
-                                        <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
-                                        <a href="#" class="servis-items__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="servis-items__item">
-                                    <div class="servis-items__content">
-                                        <a href="#" class="servis-items__image">
-                                            <img src="img/categories/05.png" alt="" />
-                                        </a>
-                                        <a href="" class="servis-items__title"> КОНТЕНТ </a>
-                                        <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
-                                        <a href="#" class="servis-items__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="servis-items__item">
-                                    <div class="servis-items__content">
-                                        <a href="#" class="servis-items__image">
-                                            <img src="img/categories/06.png" alt="" />
-                                        </a>
-                                        <a href="" class="servis-items__title"> ДИЗАЙН UX </a>
-                                        <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
-                                        <a href="#" class="servis-items__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="servis-items__item">
-                                    <div class="servis-items__content">
-                                        <a href="#" class="servis-items__image">
-                                            <img src="img/categories/09.png" alt="" />
-                                        </a>
-                                        <a href="" class="servis-items__title"> ТАРГЕТИРОВАННАЯ РЕКЛАМА </a>
-                                        <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
-                                        <a href="#" class="servis-items__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="servis-items__item">
-                                    <div class="servis-items__content">
-                                        <a href="#" class="servis-items__image">
-                                            <img src="img/categories/10.png" alt="" />
-                                        </a>
-                                        <a href="" class="servis-items__title"> ПРОДУКТ </a>
-                                        <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
-                                        <a href="#" class="servis-items__link">Подробнее</a>
-                                    </div>
-                                </div>
+                                <a href="#" class="servis-items__image">
+                                    <img src="@img/categories/02.png" alt="АНАЛИЗ" />
+                                </a>
+                                <a href="" class="servis-items__title"> АНАЛИЗ </a>
+                                <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
+                                <a href="#" class="servis-items__link">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="servis-items__item">
+                            <div class="servis-items__body">
+                                <a href="#" class="servis-items__image">
+                                    <img src="@img/categories/03.png" alt="СОЦ СЕТИ" />
+                                </a>
+                                <a href="" class="servis-items__title"> СОЦ СЕТИ </a>
+                                <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
+                                <a href="#" class="servis-items__link">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="servis-items__item">
+                            <div class="servis-items__body">
+                                <a href="#" class="servis-items__image">
+                                    <img src="@img/categories/04.png" alt="РАЗВИТИЕ" />
+                                </a>
+                                <a href="" class="servis-items__title"> РАЗВИТИЕ </a>
+                                <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
+                                <a href="#" class="servis-items__link">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="servis-items__item">
+                            <div class="servis-items__body">
+                                <a href="#" class="servis-items__image">
+                                    <img src="@img/categories/05.png" alt="КОНТЕНТ" />
+                                </a>
+                                <a href="" class="servis-items__title"> КОНТЕНТ </a>
+                                <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
+                                <a href="#" class="servis-items__link">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="servis-items__item">
+                            <div class="servis-items__body">
+                                <a href="#" class="servis-items__image">
+                                    <img src="@img/categories/06.png" alt="ДИЗАЙН UX" />
+                                </a>
+                                <a href="" class="servis-items__title"> ДИЗАЙН UX </a>
+                                <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
+                                <a href="#" class="servis-items__link">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="servis-items__item">
+                            <div class="servis-items__body">
+                                <a href="#" class="servis-items__image">
+                                    <img src="@img/categories/09.png" alt="ТАРГЕТИРОВАННАЯ РЕКЛАМА" />
+                                </a>
+                                <a href="" class="servis-items__title"> ТАРГЕТИРОВАННАЯ РЕКЛАМА </a>
+                                <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
+                                <a href="#" class="servis-items__link">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="servis-items__item">
+                            <div class="servis-items__body">
+                                <a href="#" class="servis-items__image">
+                                    <img src="@img/categories/10.png" alt="ПРОДУКТ" />
+                                </a>
+                                <a href="" class="servis-items__title"> ПРОДУКТ </a>
+                                <div class="servis-items__subtitle">Создадим уникальный и удобный дизайн.</div>
+                                <a href="#" class="servis-items__link">Подробнее</a>
                             </div>
                         </div>
                     </div>
                 </section>
+
                 <section class="page__portfolio portfolio">
                     <div class="portfolio__container _container">
                         <div class="portfolio__title">Наши Проекты</div>
@@ -170,7 +163,7 @@
                             <div class="portfolio__column">
                                 <div class="portfolio__body">
                                     <div class="portfolio__image _ibg">
-                                        <img src="img/portfolio/01.png" alt="" />
+                                        <img src="@img/portfolio/01.png" alt="" />
                                     </div>
                                     <div class="portfolio__hover">
                                         <a href="" class="portfolio__info _icon-info"></a>
@@ -182,7 +175,7 @@
                             <div class="portfolio__column">
                                 <div class="portfolio__body">
                                     <div class="portfolio__image _ibg">
-                                        <img src="img/portfolio/02.png" alt="" />
+                                        <img src="@img/portfolio/02.png" alt="" />
                                     </div>
                                     <div class="portfolio__hover">
                                         <a href="" class="portfolio__info _icon-info"></a>
@@ -194,7 +187,7 @@
                             <div class="portfolio__column">
                                 <div class="portfolio__body">
                                     <div class="portfolio__image _ibg">
-                                        <img src="img/portfolio/93.png" alt="" />
+                                        <img src="@img/portfolio/93.png" alt="" />
                                     </div>
                                     <div class="portfolio__hover">
                                         <a href="" class="portfolio__info _icon-info"></a>
@@ -206,7 +199,7 @@
                             <div class="portfolio__column">
                                 <div class="portfolio__body">
                                     <div class="portfolio__image _ibg">
-                                        <img src="img/portfolio/04.png" alt="" />
+                                        <img src="@img/portfolio/04.png" alt="" />
                                     </div>
                                     <div class="portfolio__hover">
                                         <a href="" class="portfolio__info _icon-info"></a>
@@ -223,7 +216,7 @@
                         <div class="team__row">
                             <div class="team__column">
                                 <div class="team__image _ibg">
-                                    <img src="img/video/01.jpg" alt="" />
+                                    <img src="@img/video/01.jpg" alt="" />
                                 </div>
                             </div>
                             <div class="team__column">
@@ -255,49 +248,49 @@
 
                             <div class="news__grid-item news__grid-item_1">
                                 <a href="#" class="news__image _ibg">
-                                    <img src="img/news/01.jpg" alt="" />
+                                    <img src="@img/news/01.jpg" alt="" />
                                 </a>
                                 <a href="#" class="news__link">3Д в брендинге</a>
                             </div>
                             <div class="news__grid-item news__grid-item_2">
                                 <a href="#" class="news__image _ibg">
-                                    <img src="img/news/02.jpg" alt="" />
+                                    <img src="@img/news/02.jpg" alt="" />
                                 </a>
                                 <a href="#" class="news__link">Контекстная реклама</a>
                             </div>
                             <div class="news__grid-item news__grid-item_3">
                                 <a href="#" class="news__image _ibg">
-                                    <img src="img/news/03.jpg" alt="" />
+                                    <img src="@img/news/03.jpg" alt="" />
                                 </a>
                                 <a href="#" class="news__link">Графика</a>
                             </div>
                             <div class="news__grid-item news__grid-item_4">
                                 <a href="#" class="news__image _ibg">
-                                    <img src="img/news/04.jpg" alt="" />
+                                    <img src="@img/news/04.jpg" alt="" />
                                 </a>
                                 <a href="#" class="news__link">Корпоративная культура</a>
                             </div>
                             <div class="news__grid-item news__grid-item_8">
                                 <a href="#" class="news__image _ibg">
-                                    <img src="img/news/08.jpg" alt="" />
+                                    <img src="@img/news/08.jpg" alt="" />
                                 </a>
                                 <a href="#" class="news__link">Эксклюзивность</a>
                             </div>
                             <div class="news__grid-item news__grid-item_6">
                                 <a href="#" class="news__image _ibg">
-                                    <img src="img/news/06.jpg" alt="" />
+                                    <img src="@img/news/06.jpg" alt="" />
                                 </a>
                                 <a href="#" class="news__link">Взгляд со стороны</a>
                             </div>
                             <div class="news__grid-item news__grid-item_7">
                                 <a href="#" class="news__image _ibg">
-                                    <img src="img/news/07.jpg" alt="" />
+                                    <img src="@img/news/07.jpg" alt="" />
                                 </a>
                                 <a href="#" class="news__link">Соц сети и их польза</a>
                             </div>
                             <div class="news__grid-item news__grid-item_5">
                                 <a href="#" class="news__image _ibg">
-                                    <img src="img/news/05.jpg" alt="" />
+                                    <img src="@img/news/05.jpg" alt="" />
                                 </a>
                                 <a href="#" class="news__link">Уникальный дизайн</a>
                             </div>
