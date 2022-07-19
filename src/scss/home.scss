@@ -263,30 +263,40 @@
 //========================================================================================================================================================
 
 .servis {
-    display: flex;
     max-width: rem(1330);
-    gap: rem(60);
     padding: 0px rem(15);
     margin: 0px auto;
     box-sizing: content-box;
-    @media (max-width: $pc) {
-        flex-wrap: wrap;
+    @media (min-width: $pc) {
+        display: flex;
+        @include adaptiveValue("gap", 60, 30, 1360, 1140, 1);
     }
     &__info {
         @media (min-width: $pc) {
             padding-top: rem(90);
         }
+        @media (max-width: $pc) {
+            margin-bottom: rem(32);
+        }
         @include adaptiveValue("padding-top", 50, 25, 1140, 479.98, 1);
     }
 
     &__items {
+        @media (max-width: $mobileSmall) {
+            margin-bottom: rem(40);
+        }
     }
 }
 
 .servis-info {
-    flex: 0 0 rem(390);
+    @media (min-width: $pc) {
+        flex: 0 0 percent(390, 1330);
+    }
+    @media (max-width: em(640)) {
+        text-align: center;
+    }
     &__title {
-        font-size: rem(48);
+        @include adaptiveValue("font-size", 48, 24, 767.98, 479.98, 1);
         line-height: math.div(56, 48);
         color: $primary_01;
         @include adaptiveValue("margin-bottom", 64, 20, 1140, 479.98, 1);
@@ -297,12 +307,17 @@
 
     &__subtitle {
         font-family: "Roboto";
-        font-size: rem(24);
+        @include adaptiveValue("font-size", 24, 20, 479.98, 320, 1);
         line-height: math.div(26, 24);
         color: $gray_01;
         position: relative;
-        margin-bottom: rem(34);
-        padding-bottom: rem(30);
+        @include adaptiveValue("margin-bottom", 34, 20, 479.98, 320, 1);
+        @media (min-width: $mobileSmall) {
+            padding-bottom: rem(38);
+        }
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(40);
+        }
         &::after {
             content: "";
             position: absolute;
@@ -311,32 +326,50 @@
             width: rem(100);
             height: rem(8);
             background: $primary_01;
-            @media (max-width: $tablet) {
+            @media (max-width: em(640)) {
                 left: 50%;
                 transform: translate(-50%, 0px);
             }
+            @media (max-width: $mobileSmall) {
+                top: 0;
+                bottom: auto;
+            }
+        }
+        @media (max-width: $pc) {
+            max-width: rem(610);
         }
     }
 
     &__text {
         font-family: "Roboto";
-        font-size: rem(18);
+        @include adaptiveValue("font-size", 18, 15, 767.98, 479.98, 1);
         line-height: math.div(24, 18);
         color: $gray_03;
-        @media (max-width: $tablet) {
+        @media (max-width: $pc) {
             max-width: rem(610);
         }
     }
 }
 
 .servis-items {
+    border-top: rem(1) solid $light_01;
+    border-right: rem(1) solid $light_01;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    @media (max-width: $mobile) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $mobileSmall) {
+        grid-template-columns: 1fr;
+    }
     &__item {
         padding: rem(12);
         border-bottom: rem(1) solid $light_01;
         border-left: rem(1) solid $light_01;
         min-height: rem(280);
+        @media (max-width: $mobile) {
+            padding: rem(10);
+        }
     }
 
     &__body {
@@ -347,10 +380,17 @@
         text-align: center;
         height: 100%;
         border: rem(4) solid transparent;
-        transition: border 0.3s ease 0s;
+        padding: rem(5);
+        @media (max-width: $mobile) {
+            border: rem(4) solid $primary_01;
+        }
         @media (any-hover: hover) {
             &:hover {
                 border: rem(4) solid $primary_01;
+                .servis-items__link,
+                .servis-items__subtitle {
+                    display: block;
+                }
             }
         }
     }
@@ -382,7 +422,9 @@
         line-height: math.div(19, 16);
         color: $gray_04;
         margin-bottom: rem(18);
-        // display: none;
+        @media (min-width: $mobile) {
+            display: none;
+        }
     }
 
     &__link {
@@ -393,9 +435,12 @@
         line-height: math.div(19, 16);
         letter-spacing: rem(2);
         color: $primary_01;
-        // display: none;
+        @media (min-width: $mobile) {
+            display: none;
+        }
         &::after {
             content: "→";
+            padding-left: rem(5);
         }
     }
 }
