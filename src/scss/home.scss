@@ -449,24 +449,19 @@
 
 .portfolio {
     background: linear-gradient(180deg, $primary_01 0%, rgba(43, 64, 116, 0) 100%);
-    padding: 80px 0px 50px 0;
-    @media (max-width: $tablet) {
-        padding: 40px 0px 15px 0;
-    }
-    @media (max-width: $mobileSmall) {
-        padding-top: rem(75);
-    }
+    @include adaptiveValue("padding-top", 80, 20, 991.98, 320, 1);
+    @include adaptiveValue("padding-bottom", 80, 40, 991.98, 767.98, 1);
     &__container {
     }
 
     &__title {
-        font-size: 48px;
+        @include adaptiveValue("font-size", 48, 24, 767.98, 479.98, 1);
         line-height: math.div(56, 48);
         text-align: center;
         color: $white;
         text-align: center;
-        margin: 0px 0px 80px 0px;
-        padding: 0px 0px 24px 0px;
+        @include adaptiveValue("margin-bottom", 80, 40, 767.98, 479.98, 1);
+        @include adaptiveValue("padding-bottom", 32, 28, 767.98, 479.98, 1);
         position: relative;
         &::before {
             content: "";
@@ -475,57 +470,37 @@
             transform: translate(-50%, 0px);
             bottom: 0;
             background-color: $white;
-            width: 100px;
-            height: 8px;
-        }
-        @media (max-width: $tablet) {
-            margin-bottom: rem(40);
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-            padding-bottom: rem(20);
+            width: rem(100);
+            height: rem(8);
         }
     }
 
     &__row {
-        display: flex;
-        @media (max-width: $pc) {
-            flex-wrap: wrap;
-            justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(24);
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
         }
-        @media (min-width: $mobile) {
-            padding: 0px rem(80);
+        @media (max-width: em(640)) {
+            grid-template-columns: 1fr;
         }
     }
 
     &__column {
-        padding: 0px rem(10);
-        margin-bottom: rem(30);
-        flex: 0 1 25%;
-        @media (max-width: $pc) {
-            flex: 0 1 50%;
-        }
-        @media (max-width: $tablet) {
-            flex: 1 1 100%;
-            margin-bottom: rem(25);
-            padding: 0px rem(25);
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-        }
     }
 
     &__body {
         position: relative;
         text-align: center;
-        @include adaptiveValue("margin-bottom", 40, 25, 1140, 767.98, 1);
+        @include adaptiveValue("margin-bottom", 30, 25, 991.98, 767.98, 1);
         @media (max-width: $tablet) {
             .portfolio__hover {
                 opacity: 1;
                 visibility: visible;
             }
         }
-        @media (min-width: $tablet) {
+        @media (any-hover: hover) {
             &:hover {
                 .portfolio__hover {
                     opacity: 1;
@@ -535,18 +510,10 @@
         }
     }
 
-    &__image {
-        min-height: rem(240);
+    &__image-ibg {
+        display: block;
+        padding-bottom: percent(240, 270);
         overflow: hidden;
-        @media (max-width: $pc) {
-            min-height: rem(280);
-        }
-        @media (max-width: $tablet) {
-            min-heigth: rem(460);
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-        }
         img {
             border-radius: rem(4);
         }
@@ -557,25 +524,25 @@
         visibility: hidden;
         opacity: 0;
         position: absolute;
-        width: calc(100% - 26px);
-        height: calc(100% - 22px);
-        top: 11px;
-        left: 13px;
+        width: calc(100% - rem(26));
+        height: calc(100% - rem(22));
+        top: rem(11);
+        left: rem(13);
         background: rgba(249, 246, 229, 0.83);
-        border-radius: 4px;
+        border-radius: rem(4);
         display: flex;
         justify-content: center;
         align-items: center;
         @media (max-width: $tablet) {
             height: 20%;
             top: auto;
-            bottom: 11px;
+            bottom: rem(11);
         }
     }
     &__info {
-        margin: 0px 15px 0px 0px;
+        margin-right: rem(15);
         &::before {
-            font-size: 32px;
+            font-size: rem(32);
         }
     }
 
@@ -594,8 +561,14 @@
         text-align: center;
         letter-spacing: rem(2);
         color: $primary_01;
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
+
 //========================================================================================================================================================
 
 .team {
