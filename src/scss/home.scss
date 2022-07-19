@@ -470,7 +470,7 @@
             grid-template-columns: repeat(2, 1fr);
         }
         @media (max-width: em(640)) {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr !important;
         }
     }
 
@@ -587,10 +587,10 @@
         @media (max-width: $mobile) {
             flex: 0 1 percent(240, 672);
             height: rem(240);
+            @include adaptiveValue("height", 490, 250, 640, 320, 1);
         }
         @media (max-width: em(640)) {
-            flex: 1 1 100%;
-            @include adaptiveValue("height", 490, 250, 640, 320, 1);
+            flex: 1 1 100% !important;
         }
     }
 
@@ -599,7 +599,7 @@
             flex: 0 1 percent(400, 672);
         }
         @media (max-width: em(640)) {
-            flex: 1 1 100%;
+            flex: 1 1 100% !important;
         }
     }
 
