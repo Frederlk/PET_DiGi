@@ -572,156 +572,96 @@
 //========================================================================================================================================================
 
 .team {
-    padding: 50px 0px 70px 0;
-    @media (max-width: $pc) {
-        padding: 80px 0px 40px 0;
-    }
-    @media (max-width: $tablet) {
-        padding: 40px 0px 50px 0;
-    }
-    @media (max-width: $mobileSmall) {
-        padding-top: rem(75);
+    @include adaptiveValue("padding-top", 80, 20, 991.98, 320, 1);
+    @include adaptiveValue("padding-bottom", 80, 40, 991.98, 767.98, 1);
+    @media (max-width: $mobile) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: rem(40);
     }
     &__container {
-        @media (max-width: $tablet) {
-            display: flex;
+        display: flex;
+        @include adaptiveValue("gap", 100, 34, 1140, 767.98, 1);
+        @media (max-width: em(640)) {
             flex-wrap: wrap;
             justify-content: center;
         }
     }
-    &__row {
-        display: flex;
-        @media (max-width: $tablet) {
-            flex-wrap: wrap;
-        }
-    }
-    &__column {
-        position: relative;
-        &:first-child {
-            margin: 0px 50px 40px 90px;
-            flex: 0 0 460px;
-            @media (max-width: $pc) {
-                flex: 0 0 400px;
-                margin: 0px 30px 40px 0px;
-            }
-            @media (max-width: $tablet) {
-                margin: 0px 17px 40px 0px;
-                flex: 0 0 240px;
-            }
-            @media (max-width: $tablet) {
-                margin: 0px 0px 40px 0px;
-                flex: 1 1 100%;
-            }
-        }
-        &:last-child {
-            margin: 0px 75px 40px 50px;
-            flex: 1 1 auto;
-            @media (max-width: $pc) {
-                margin: 0px 0px 40pxrem (30);
-            }
-            @media (max-width: $tablet) {
-                margin: 0px 0px 40px 17px;
-            }
-            @media (max-width: $tablet) {
-                flex: 1 1 100%;
-                margin: 0px 0px 40px 0px;
-            }
-        }
-    }
 
-    &__image {
-        border-radius: 4px;
+    &__image-ibg {
+        flex: 0 0 percent(460, 1140);
+        border-radius: rem(4);
         overflow: hidden;
         width: 100%;
         top: 0;
         left: 0;
-        height: 420px;
-        @media (max-width: $pc) {
-            height: 380px;
+        max-height: rem(430);
+        @media (max-width: $mobile) {
+            flex: 0 1 percent(240, 672);
+            height: rem(240);
         }
-        @media (max-width: $tablet) {
-            height: 230px;
-        }
-        @media (max-width: $tablet) {
-            height: 490px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
+        @media (max-width: em(640)) {
+            flex: 1 1 100%;
+            @include adaptiveValue("height", 490, 250, 640, 320, 1);
         }
     }
 
     &__body {
-        @media (max-width: $tablet) {
-            text-align: center;
+        @media (max-width: $mobile) {
+            flex: 0 1 percent(400, 672);
+        }
+        @media (max-width: em(640)) {
+            flex: 1 1 100%;
         }
     }
 
     &__title {
-        font-size: rem(48);
+        @include adaptiveValue("font-size", 48, 24, 767.98, 479.98, 1);
         line-height: math.div(56, 48);
         color: $gray_01;
-        padding: 0px 0px 38px 0px;
-        margin: 0px 0px 40px 0px;
+        @include adaptiveValue("padding-bottom", 38, 23, 1140, 991.98, 1);
+        @include adaptiveValue("margin-bottom", 40, 20, 1140, 991.98, 1);
         position: relative;
-        @media (max-width: $pc) {
-            padding: 0px 0px 23px 0px;
-            margin: 0px 0px rem(20) 0px;
-        }
-        @media (max-width: $tablet) {
-            padding: 0px 0px 28px 0px;
-            margin: 0px 0px 10px 0px;
-            font-size: 36px;
-        }
-        @media (max-width: $tablet) {
-            margin: 0px 0px 40px 0px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-            font-size: 24px;
-        }
         &::after {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 113.48px;
-            height: 8px;
+            width: rem(100);
+            height: rem(8);
             background: $primary_01;
-            @media (max-width: $pc) {
-                width: 100px;
-            }
-            @media (max-width: $tablet) {
-                width: 88px;
+        }
+        @media (max-width: em(640)) {
+            text-align: center;
+            &::after {
                 left: 50%;
                 transform: translate(-50%, 0px);
-            }
-            @media (max-width: $mobileSmall) {
-                padding-top: rem(75);
             }
         }
     }
 
     &__text {
         font-family: Roboto;
-        font-size: rem(18);
+        @include adaptiveValue("font-size", 18, 16, 1140, 991.98, 1);
         line-height: math.div(24, 18);
         color: $gray_04;
-        margin-bottom: rem(40);
-        @media (max-width: $tablet) {
-            margin: 0;
+        @media (min-width: $mobile) {
+            @include adaptiveValue("margin-bottom", 40, 20, 1140, 991.98, 1);
         }
-        @media (max-width: $tablet) {
-            font-size: rem(16);
-            margin-bottom: rem(25);
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
+        @media (max-width: em(640)) {
+            text-align: center;
         }
     }
 
     &__btn {
         height: rem(60);
-        padding: 0px rem(35);
+        min-width: rem(230);
+        @media (any-hover: hover) {
+            &:hover {
+                box-shadow: rem(5) rem(5) rem(20) $primary_01;
+            }
+        }
     }
 }
 
