@@ -5,24 +5,11 @@
     @media (max-width: $mobileSmall) {
         padding-top: rem(80);
     }
-    &__home {
-    }
-
-    &__servis {
-    }
-
-    &__portfolio {
-    }
-
-    &__team {
-    }
-
-    &__news {
-    }
-
-    &__testimonials {
+    ._header-scroll & {
+        padding-top: rem(80);
     }
 }
+
 // HOME ===================================================================================================================================
 
 .home {
@@ -804,16 +791,12 @@
 //========================================================================================================================================================
 
 .testimonials {
-    padding: 80px 0px 140px 0;
-    @media (max-width: $tablet) {
-        padding: 50px 0px 80px 0;
-    }
+    @include adaptiveValue("padding-top", 100, 50, 991.98, 767.98, 1);
+    @include adaptiveValue("padding-bottom", 110, 85, 991.98, 767.98, 1);
     &__container {
     }
 
     &__slider {
-    }
-    .swiper-wrapper {
     }
 
     &__slide {
@@ -824,32 +807,19 @@
     }
 
     &__quotes {
-        font-size: 26px;
-        margin: 0px 0px 50px 0px;
+        font-size: rem(26);
+        @include adaptiveValue("margin-bottom", 50, 40, 1140, 991.98, 1);
         flex: 1 1 auto;
-        @media (max-width: $tablet) {
-            margin: 0px 0px 40px 0px;
-        }
     }
 
     &__text {
-        max-width: 880px;
-        margin: 0px auto 30px auto;
-        font-size: 36px;
+        max-width: rem(880);
+        margin: 0px auto;
+        @include adaptiveValue("font-size", 36, 24);
         line-height: math.div(46, 36);
         color: $gray_01;
-        @media (max-width: $pc) {
-            font-size: 32px;
-            line-height: math.div(37, 32);
-        }
-        @media (max-width: $tablet) {
-            margin: 0px 0px 40px 0px;
-            line-height: math.div(34, 32);
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-            margin: 0px 0px rem(20) 0px;
-            line-height: math.div(26, 24);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 45, 20, 991.98, 479.98, 1);
         }
         span {
             font-weight: 700;
@@ -858,38 +828,26 @@
     }
 
     &__name {
-        margin-bottom: rem(40);
         font-weight: 700;
-        font-size: rem(24);
+        @include adaptiveValue("font-size", 24, 20, 991.98, 479.98, 1);
         line-height: math.div(28, 24);
-        letter-spacing: 2px;
+        letter-spacing: rem(2);
         color: $gray_01;
-        @media (max-width: $pc) {
-            font-size: rem(20);
-        }
-        @media (max-width: $tablet) {
-            margin-bottom: rem(20);
-            line-height: math.div(24, 20);
-        }
     }
 
     &__pagination {
-        margin-top: rem(40);
+        @include adaptiveValue("margin-top", 80, 40, 991.98, 479.98, 1);
         display: flex;
         justify-content: center;
-        @media (max-width: $tablet) {
-            margin-top: rem(20);
-        }
+        gap: rem(10);
         .swiper-pagination-bullet {
             border-radius: 50%;
+            cursor: pointer;
             width: rem(10);
             height: rem(10);
             border: rem(1) solid $primary_01;
             background: $primary_01;
             transition: background-color 0.3s ease 0s;
-            &:not(:last-child) {
-                margin-bottom: rem(10);
-            }
         }
         .swiper-pagination-bullet-active {
             background-color: $white;

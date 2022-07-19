@@ -16,8 +16,13 @@
         top: 0;
         left: 0;
         pointer-events: none;
-        transition: visibility 0.3s ease 0s, opacity 0.3s ease 0s;
+        transition: visibility 0.3s ease 0s, opacity 0.3s ease 0s, height 0.3s ease 0s;
         @media (max-width: $mobileSmall) {
+            height: rem(80);
+        }
+    }
+    ._header-scroll & {
+        &::before {
             height: rem(80);
         }
     }
@@ -27,7 +32,11 @@
         align-items: center;
         height: rem(100);
         @include adaptiveValue("gap", 80, 20, 991.98, 479.98, 1);
+        transition: height 0.3s ease 0s;
         @media (max-width: $mobileSmall) {
+            height: rem(80);
+        }
+        ._header-scroll & {
             height: rem(80);
         }
     }
