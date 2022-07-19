@@ -669,118 +669,60 @@
 
 .news {
     background-color: $light_01;
-    padding: 50px 0px;
-    @media (max-width: $pc) {
-        padding: 65px 0px 50px 0;
-    }
-    @media (max-width: $tablet) {
-        padding: 40px 0px 10px 0;
-    }
+    @include adaptiveValue("padding-top", 80, 40, 991.98, 767.98, 1);
+    @include adaptiveValue("padding-bottom", 80, 40, 991.98, 767.98, 1);
     &__container {
     }
 
     &__title {
-        font-size: rem(48);
+        @include adaptiveValue("font-size", 48, 24, 767.98, 479.98, 1);
         line-height: math.div(56, 48);
         color: $gray_01;
-        padding: 0px 0px 28px 0px;
-        margin: 0px 0px 115px 0px;
+        padding-bottom: rem(28);
+        @include adaptiveValue("margin-bottom", 115, 40, 991.98, 479.98, 1);
         position: relative;
         text-align: center;
-        @media (max-width: $pc) {
-            padding: 0px 0px 38px 0px;
-            margin: 0px 0px 100px 0px;
-        }
-        @media (max-width: $tablet) {
-            padding: 0px 0px 38px 0px;
-            margin: 0px 0px 50px 0px;
-            font-size: 36px;
-        }
-        @media (max-width: $tablet) {
-            padding: 0px 0px 28px 0px;
-            margin: 0px 0px 60px 0px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding-top: rem(75);
-            font-size: 24px;
-        }
         &::after {
             content: "";
             position: absolute;
             bottom: 0;
-            width: 113.48px;
-            height: 8px;
+            width: rem(100);
+            height: rem(8);
             background: $primary_01;
             left: 50%;
             transform: translate(-50%, 0px);
-            @media (max-width: $pc) {
-                width: 100px;
-            }
-            @media (max-width: $tablet) {
-                width: 88px;
-            }
-            @media (max-width: $mobileSmall) {
-                padding-top: rem(75);
-            }
         }
     }
 
     &__masonry {
-        display: flex;
-        padding: 0px 50px;
-        @media (max-width: $pc) {
-            padding: 0pxrem (15);
-        }
-        @media (max-width: $tablet) {
-            padding: 0px 0px;
-            margin: 0px -15px;
-        }
-    }
-
-    &__grid-column {
-        position: relative;
-        flex: 1;
-        @media (max-width: $pc) {
-            &:nth-child(4) {
-                display: none;
-            }
-        }
-        @media (max-width: $tablet) {
-            &:nth-child(3) {
-                display: none;
-            }
-            @media (max-width: $mobileSmall) {
-                padding-top: rem(75);
-                display: none;
-            }
-        }
+        margin: 0 auto;
     }
 
     &__grid-item {
         overflow: hidden;
-        margin: 0px rem(15) 30px rem(15);
-        border-radius: 4px;
+        border-radius: rem(4);
         position: relative;
+        @include adaptiveValue("margin-bottom", 30, 20, 479.98, 320, 1);
         &::before {
             opacity: 0;
-            transition: all 0.3s ease 0s;
+            transition: opacity 0.3s ease 0s;
             visibility: hidden;
             content: "";
             z-index: 5;
             position: absolute;
-            width: 32px;
-            height: 32px;
+            width: rem(32);
+            height: rem(32);
             top: 50%;
-            transform: translate(-50%, -50%);
             left: 50%;
+            transform: translate(-50%, -50%);
             background: url("../img/news/info.svg") 0 0 no-repeat;
         }
         &::after {
             content: "";
-            transition: all 0.3s ease 0s;
+            transition: border 0.3s ease 0;
             border: 0px solid rgba(0, 0, 0, 0);
             position: absolute;
-            border-radius: 4px;
+            border-radius: rem(4);
             overflow: hidden;
             z-index: 2;
             height: 100%;
@@ -789,104 +731,72 @@
             left: 0;
             background-color: rgba(43, 64, 116, 0.4);
         }
-        @media (min-width: $tablet) {
+        @media (any-hover: hover) {
             &:hover {
                 &::before {
                     opacity: 1;
                     visibility: visible;
                 }
                 &::after {
-                    border: 10px solid $primary_01;
+                    border: rem(10) solid $primary_01;
                 }
                 .news__link {
-                    transform: translate(0px, -30px);
+                    transform: translate(0px, rem(-30));
                     background-color: $primary_01;
                     color: $white;
                 }
             }
         }
-        &_1 {
-            .news__image {
-                img {
-                    height: 440px;
-                }
-            }
-        }
-        &_2 {
-            .news__image {
-                img {
-                    height: 340px;
-                }
-            }
-        }
-        &_3 {
-            .news__image {
-                img {
-                    height: 380px;
-                }
-            }
-        }
-        &_4 {
-            .news__image {
-                img {
-                    object-position: 0 10%;
-                    height: 210px;
-                }
-            }
-        }
-        &_5 {
-            .news__image {
-                img {
-                    height: 200px;
-                }
-            }
-        }
-        &_6 {
-            .news__image {
-                img {
-                    height: 340px;
-                }
-            }
-        }
-        &_7 {
-            .news__image {
-                img {
-                    height: 220px;
-                }
-            }
-        }
-        &_8 {
-            .news__image {
-                img {
-                    height: 430px;
-                }
-            }
-        }
     }
 
-    &__image {
+    &__image-ibg {
+        display: block;
+        width: rem(260);
+        @media (max-width: $mobileSmall) {
+            width: rem(290);
+        }
         img {
-            position: relative;
+            width: 100%;
+        }
+        .news__grid-item_1 & {
+            height: rem(440);
+        }
+        .news__grid-item_2 & {
+            height: rem(340);
+        }
+        .news__grid-item_3 & {
+            height: rem(380);
+        }
+        .news__grid-item_4 & {
+            height: rem(210);
+        }
+        .news__grid-item_5 & {
+            height: rem(200);
+        }
+        .news__grid-item_6 & {
+            height: rem(340);
+        }
+        .news__grid-item_7 & {
+            height: rem(210);
+        }
+        .news__grid-item_8 & {
+            height: rem(440);
         }
     }
 
     &__link {
+        @extend %text_01;
+        font-weight: 700;
         position: absolute;
         width: 100%;
         left: 0;
         bottom: 0;
         z-index: 5;
-        margin: 0;
-        transform: translate(0px, 0px);
-        transition: all 0.3s ease 0s;
+        transition: transform 0.3s ease 0s, background-color 0.3s ease 0s, color 0.3s ease 0s;
         display: flex;
         align-items: center;
-        padding: 10px 20px;
+        padding: rem(10) rem(20);
         background-color: $white;
-        font-weight: 700;
-        font-size: rem(16);
-        line-height: math.div(19, 16);
-        letter-spacing: rem(2);
         color: $gray_01;
     }
 }
